@@ -1,4 +1,4 @@
-package com.tw.school.Repository;
+package com.tw.school.repository;
 
 import com.tw.school.model.Student;
 import org.springframework.data.repository.CrudRepository;

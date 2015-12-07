@@ -14,17 +14,17 @@ public class Student {
     @Column(name = "AGE")
     private int age;
 
-    @Column(name = "GENDER")
-    private boolean gender;
+    @Column(name = "ADDRESS")
+    private String address;
 
     public Student() {
     }
 
-    public Student(String name, long id, int age, boolean gender) {
+    public Student(String name, long id, int age, String address) {
         this.name = name;
         this.id = id;
         this.age = age;
-        this.gender = gender;
+        this.address = address;
     }
 
     public String getName() {
@@ -51,11 +51,11 @@ public class Student {
         this.age = age;
     }
 
-    public boolean isGender() {
-        return gender;
+    public String getAddress() {
+        return address;
     }
 
-    public void setGender(boolean gender) {
-        this.gender = gender;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
