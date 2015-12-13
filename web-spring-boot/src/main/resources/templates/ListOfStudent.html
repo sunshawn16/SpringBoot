@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <title>List fo Students</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
+
+<table>
+
+    <tr th:each="student:${students}">
+        <td th:utext="'id:'+${student.id}"></td>
+        <td th:utext="'name:'+${student.name}"></td>
+        <td th:utext="'age'+${student.age}"></td>
+        <td th:utext="'address'+${student.address}"></td>
+    </tr>
+</table>
+<a href="/createStudent">Create another student</a>
+
 <form method="post">
     <table>
         <tr>
@@ -14,13 +27,5 @@
         </tr>
     </table>
 </form>
-<table>
-    <tr th:each="student:${students}">
-        <td th:utext="${student.id}"></td>
-        <td th:utext="${student.name}"></td>
-        <td th:utext="${student.age}"></td>
-        <td th:utext="${student.address}"></td>
-    </tr>
-</table>
 </body>
 </html>

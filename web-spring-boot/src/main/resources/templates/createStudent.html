@@ -2,13 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<form method="post" action="createStudent.do">
-    ID: <input id="id" type="text" name="id"/>
-    name: <textarea id="name" name="name"></textarea>
-    <input type="submit" value="create"/>
+<form th:action="@{/createStudent}" th:object="${student}" method="post">
+    <!--<form method="post" action="createStudent.do">-->
+    <p>ID: <input th:field="*{id}" type="text" name="id"/></p>
+
+    <p>Name: <input th:field="*{name}" type="text" name="name"/></p>
+
+    <p><input type="submit" value="create"/></p>
 </form>
 
 </body>
