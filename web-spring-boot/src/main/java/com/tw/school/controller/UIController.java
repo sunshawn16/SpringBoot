@@ -24,17 +24,28 @@ public class UIController {
     CreateStudentService createStudentService;
 
     @RequestMapping(value = "/welcome")
-    public String home(Model model){
+    public String home() {
         return "welcome";
     }
+    @RequestMapping(value = "/login")
+    public String login() {
+        return "login";
+    }
+    @RequestMapping(value = "/hello")
+    public String hello() {
+        return "hello";
+    }
 
-    @RequestMapping(value = "/createStudent",method = GET)
-    public String createStudent(Model model,@ModelAttribute Student student){
-        model.addAttribute("student",new Student());
+
+
+    @RequestMapping(value = "/createStudent", method = GET)
+    public String createStudent(Model model, @ModelAttribute Student student) {
+        model.addAttribute("student", new Student());
         return "createStudent";
     }
-    @RequestMapping(value = "/createStudent",method = POST)
-    public String submitStudent(@ModelAttribute Student student,Model model){
+
+    @RequestMapping(value = "/createStudent", method = POST)
+    public String submitStudent(@ModelAttribute Student student, Model model) {
         createStudentService.create(student);
         model.addAttribute("students", studentRepository.findAll());
         return "listOfStudent";
@@ -45,7 +56,8 @@ public class UIController {
         model.addAttribute("students", studentRepository.findAll());
         return "listOfStudent";
     }
-    @RequestMapping(value = "/students",method = GET)
+
+    @RequestMapping(value = "/students", method = GET)
     public String getAllStudents(@RequestParam("name") String name, Model model) {
         model.addAttribute("students", searchStudentService.searchStudentByName(name));
         return "listOfStudent";
